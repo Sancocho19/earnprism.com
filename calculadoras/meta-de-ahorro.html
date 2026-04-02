@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de meta de ahorro | IngresoLab</title>
+  <meta name="description" content="Descubre cuántos meses necesitas para alcanzar una meta de ahorro con aportes mensuales e interés.">
+  <link rel="canonical" href="https://www.ingresolab.app/calculadoras/meta-de-ahorro.html">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadora de meta de ahorro | IngresoLab">
+  <meta property="og:description" content="Descubre cuántos meses necesitas para alcanzar una meta de ahorro con aportes mensuales e interés.">
+  <meta property="og:url" content="https://www.ingresolab.app/calculadoras/meta-de-ahorro.html">
+  <meta property="og:image" content="https://www.ingresolab.app/assets/img/og-default.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Calculadora de meta de ahorro", "url": "https://www.ingresolab.app/calculadoras/meta-de-ahorro.html", "description": "Descubre cuántos meses necesitas para llegar a una meta.", "inLanguage": "es"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.ingresolab.app/"}, {"@type": "ListItem", "position": 2, "name": "Calculadoras", "item": "https://www.ingresolab.app/calculadoras/"}, {"@type": "ListItem", "position": 3, "name": "Calculadora de meta de ahorro", "item": "https://www.ingresolab.app/calculadoras/meta-de-ahorro.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿La calculadora usa interés compuesto?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Aplica una tasa mensual equivalente a la tasa anual que introduces para aproximar crecimiento del saldo."}}, {"@type": "Question", "name": "¿Qué pasa si pongo 0% de interés?", "acceptedAnswer": {"@type": "Answer", "text": "Seguirá calculando el tiempo usando solo tus aportes mensuales."}}, {"@type": "Question", "name": "¿Sirve para un fondo de emergencia o una compra grande?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Puedes usarla para cualquier meta con una cifra objetivo y un aporte mensual."}}]}]}</script>
+</head>
+<body data-tool-slug="meta-de-ahorro" data-tool-title="Calculadora de meta de ahorro" data-tool-path="/calculadoras/meta-de-ahorro.html">
+  
+    <header class="site-header">
+      <div class="container header-wrap">
+        <a class="brand" href="/" aria-label="IngresoLab inicio">
+          <span class="brand-mark">₿</span>
+          <span>
+            <strong>IngresoLab</strong>
+            <small>Calculadoras de ingresos que explican el resultado</small>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" aria-label="Principal">
+          <a href="/">Inicio</a><a href="/calculadoras/" class="is-active">Calculadoras</a><a href="/guias/">Guías</a><a href="/sobre.html">Sobre el proyecto</a>
+        </nav>
+      </div>
+    </header>
+    
+  <main>
+    
+<section class="page-hero">
+  <div class="container">
+    <div class="page-head">
+      <div class="breadcrumbs"><a href="/">Inicio</a> <span>›</span> <a href="/calculadoras/">Calculadoras</a> <span>›</span> <span>Calculadora de meta de ahorro</span></div>
+      <h1>Calculadora de meta de ahorro</h1>
+      <p>Una herramienta perfecta para cerrar el flujo de ingreso → presupuesto → meta. Le da al usuario un horizonte temporal claro y eso incrementa mucho el valor percibido.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container layout-2col">
+    <div>
+      <article class="card calculator-card">
+        <h2 style="margin-top:0">Planifica tu meta</h2>
+        <form class="stack" data-calculator="savings">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="savings-goal">Meta total</label>
+              <input id="savings-goal" type="number" min="0" step="10" value="10000">
+            </div>
+            <div class="form-field">
+              <label for="savings-currency">Moneda</label>
+              <select id="savings-currency">
+                <option>USD</option>
+                <option>EUR</option>
+                <option>COP</option>
+                <option>MXN</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="savings-current">Ahorro actual</label>
+              <input id="savings-current" type="number" min="0" step="10" value="1500">
+            </div>
+            <div class="form-field">
+              <label for="savings-monthly">Aporte mensual</label>
+              <input id="savings-monthly" type="number" min="0" step="10" value="300">
+            </div>
+            <div class="form-field">
+              <label for="savings-rate">Rentabilidad anual (%)</label>
+              <input id="savings-rate" type="number" min="0" step="0.1" value="4">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Calcular tiempo</button>
+          </div>
+        </form>
+
+        <div class="result-card hide" id="savings-result">
+          <h3>Tiempo estimado para alcanzar la meta</h3>
+          <div class="result-big" id="savings-main"></div>
+          <div class="result-grid">
+            <div class="result-item" id="savings-time"></div>
+            <div class="result-item" id="savings-interest"></div>
+            <div class="result-item" id="savings-final"></div>
+            <div class="result-item"><strong>Tip</strong><span>Subir el aporte mensual suele mover más la fecha que perseguir una rentabilidad alta.</span></div>
+          </div>
+          <div class="progress" id="savings-progress"><span></span></div>
+          <p class="note" id="savings-note"></p>
+          <div class="copy-row">
+            <button class="btn btn-secondary" data-copy-target="#savings-result" type="button">Copiar resultado</button>
+            <button class="btn btn-secondary" data-share="#savings-result" type="button">Compartir</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card content-card guide-content">
+        <h2>Por qué esta herramienta cierra bien la sesión</h2>
+        <p>Después de saber cuánto ganas y cómo repartirlo, el siguiente paso lógico es preguntarte cuándo llegarás a un objetivo. Esa transición hace que el usuario sienta continuidad y que el sitio tenga una especie de recorrido interno natural.</p>
+        <h2>Qué hace más valioso el resultado</h2>
+        <p>No muestra solo una fecha. También enseña el papel del interés y del aporte mensual. Eso da pie a ejemplos, guías, comparativas y hasta futuras plantillas descargables.</p>
+        <h2>Qué enlazar desde aquí</h2>
+        <p>Desde esta página conviene mandar a la guía <a href="/guias/como-crear-una-meta-de-ingresos.html">cómo crear una meta de ingresos</a> o regresar al <a href="/calculadoras/presupuesto-50-30-20.html">presupuesto 50/30/20</a> para ajustar variables.</p>
+      </article>
+
+      <article class="card content-card faq">
+        <h2 style="margin-top:0">Preguntas frecuentes</h2>
+        <details><summary>¿La calculadora usa interés compuesto?</summary><p>Sí. Aplica una tasa mensual equivalente a la tasa anual que introduces para aproximar crecimiento del saldo.</p></details><details><summary>¿Qué pasa si pongo 0% de interés?</summary><p>Seguirá calculando el tiempo usando solo tus aportes mensuales.</p></details><details><summary>¿Sirve para un fondo de emergencia o una compra grande?</summary><p>Sí. Puedes usarla para cualquier meta con una cifra objetivo y un aporte mensual.</p></details>
+      </article>
+    </div>
+    
+    <aside class="sticky-col">
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Qué mirar en el resultado</h3>
+        <ul class="metric-list">
+          <li><strong>Meses y años</strong><span class="muted">Aterriza una meta que normalmente se percibe lejana.</span></li><li><strong>Interés estimado</strong><span class="muted">Muestra cuánto aporta el tiempo además del esfuerzo.</span></li><li><strong>Progreso inicial</strong><span class="muted">Hace visible el punto de partida del usuario.</span></li>
+        </ul>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Herramientas relacionadas</h3>
+        <div class="related-list"><a class="link-card" href="/calculadoras/sueldo-por-hora-a-mes.html"><strong>Calculadora de sueldo por hora a mes</strong><small>Convierte tarifa por hora a ingreso semanal, mensual y anual.</small></a><a class="link-card" href="/calculadoras/cuanto-cobrar-freelance.html"><strong>Calculadora de cuánto cobrar freelance</strong><small>Calcula una tarifa freelance realista según meta anual y horas facturables.</small></a><a class="link-card" href="/calculadoras/calculadora-ingresos-creador.html"><strong>Calculadora de ingresos para creadores</strong><small>Estima patrocinio, ventas y meta mensual como creador de contenido.</small></a></div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Tus últimos resultados</h3>
+        <div class="stack" data-history="savings"></div>
+      </div>
+      <div class="card sidebar-card">
+        <div class="ad-slot">Espacio preparado para afiliado o display ad con alta intención.</div>
+      </div>
+    </aside>
+    
+  </div>
+</section>
+
+  </main>
+  
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h3>IngresoLab</h3>
+          <p>Proyecto enfocado en SEO útil, tiempo en página y monetización limpia. El objetivo es resolver una duda real en menos clics.</p>
+        </div>
+        <div>
+          <h3>Calculadoras destacadas</h3>
+          <ul><li><a href="/calculadoras/sueldo-por-hora-a-mes.html">Calculadora de sueldo por hora a mes</a></li><li><a href="/calculadoras/cuanto-cobrar-freelance.html">Calculadora de cuánto cobrar freelance</a></li><li><a href="/calculadoras/calculadora-ingresos-creador.html">Calculadora de ingresos para creadores</a></li><li><a href="/calculadoras/calculadora-aumento-salarial.html">Calculadora de aumento salarial real</a></li></ul>
+        </div>
+        <div>
+          <h3>Guías</h3>
+          <ul><li><a href="/guias/como-cobrar-como-freelance.html">Cómo cobrar como freelance sin regalar tu trabajo</a></li><li><a href="/guias/como-pedir-un-aumento.html">Cómo pedir un aumento con números y no con improvisación</a></li><li><a href="/guias/como-crear-una-meta-de-ingresos.html">Cómo crear una meta de ingresos que sí puedas cumplir</a></li></ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/sobre.html">Sobre el proyecto</a></li>
+            <li><a href="/privacidad.html">Privacidad</a></li>
+            <li><a href="/terminos.html">Términos</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span data-current-year></span> IngresoLab. Hecho para Vercel y fácil de escalar.</p>
+      </div>
+    </footer>
+    
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/calculators.js" defer></script>
+</body>
+</html>
