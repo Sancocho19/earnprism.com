@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Quote Calculator | EarnPrism</title>
+  <meta name="description" content="Turn an hourly floor into a project quote with scope, buffer, revisions, and expenses.">
+  <link rel="canonical" href="https://earnprism.com/calculators/project-quote-calculator">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Project Quote Calculator | EarnPrism">
+  <meta property="og:description" content="Turn an hourly floor into a project quote with scope, buffer, revisions, and expenses.">
+  <meta property="og:url" content="https://earnprism.com/calculators/project-quote-calculator">
+  <meta property="og:image" content="https://earnprism.com/assets/img/og-default.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Project Quote Calculator", "url": "https://earnprism.com/calculators/project-quote-calculator", "description": "Turn an hourly floor into a project quote with scope, buffer, revisions, and expenses.", "inLanguage": "en"}, {"@type": "SoftwareApplication", "name": "Project Quote Calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://earnprism.com/calculators/project-quote-calculator"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://earnprism.com/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://earnprism.com/calculators"}, {"@type": "ListItem", "position": 3, "name": "Project Quote Calculator", "item": "https://earnprism.com/calculators/project-quote-calculator"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why include revision rounds?", "acceptedAnswer": {"@type": "Answer", "text": "Because revision risk is one of the fastest ways for a quote to stop working."}}, {"@type": "Question", "name": "What is a reasonable deposit?", "acceptedAnswer": {"@type": "Answer", "text": "Many freelancers use 30% to 50%, depending on project size and risk."}}, {"@type": "Question", "name": "Should I ever skip the buffer?", "acceptedAnswer": {"@type": "Answer", "text": "Only when the scope is extremely tight and the client has a strong process history with you."}}]}]}</script>
+</head>
+<body data-tool-slug="project-quote-calculator" data-tool-title="Project Quote Calculator" data-tool-path="/calculators/project-quote-calculator">
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="/" aria-label="EarnPrism home">
+        <span class="brand-mark">$</span>
+        <span>
+          <strong>EarnPrism</strong>
+          <small>Smart money tools for pay, freelance work, savings, and budgeting</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" aria-label="Primary"><a href="/">Home</a><a href="/calculators" class="is-active">Calculators</a><a href="/guides">Guides</a><a href="/about">About</a></nav>
+    </div>
+  </header>
+  <main>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-head">
+      <div class="breadcrumbs"><a href="/">Home</a> <span>›</span> <a href="/calculators">Calculators</a> <span>›</span> <span>Project Quote Calculator</span></div>
+      <span class="section-kicker">Freelance</span>
+      <h1>Project Quote Calculator</h1>
+      <p>Price a project around scope, revision risk, and delivery buffer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container layout-2col">
+    <div>
+      <article class="card calculator-card">
+        <h2 style="margin-top:0">Run the calculator</h2>
+        <p class="muted" style="margin-top:0">Use this calculator when you already know your rate floor and want a project number that accounts for production time, revisions, expenses, and a safety buffer.</p>
+        
+<form class="stack" data-calculator="projectquote">
+  <div class="form-grid">
+    <div class="form-field"><label for="projectquote-rate">Hourly floor</label><input id="projectquote-rate" type="number" min="0" step="0.01" value="95"></div>
+    <div class="form-field"><label for="projectquote-currency">Currency</label><select id="projectquote-currency"><option>USD</option><option>GBP</option><option>CAD</option><option>AUD</option><option>EUR</option></select></div>
+    <div class="form-field"><label for="projectquote-hours">Estimated project hours</label><input id="projectquote-hours" type="number" min="1" step="1" value="24"></div>
+    <div class="form-field"><label for="projectquote-buffer">Buffer percentage</label><input id="projectquote-buffer" type="number" min="0" step="1" value="15"></div>
+    <div class="form-field"><label for="projectquote-expenses">Pass-through expenses</label><input id="projectquote-expenses" type="number" min="0" step="1" value="150"></div>
+    <div class="form-field"><label for="projectquote-revisions">Revision rounds included</label><input id="projectquote-revisions" type="number" min="0" step="1" value="2"></div>
+  </div>
+  <div class="form-actions"><button class="btn btn-primary" type="submit">Build quote</button><button class="btn btn-secondary" type="reset">Reset</button></div>
+</form>
+<div class="result-card hide" id="projectquote-result">
+  <h3>Suggested project quote</h3>
+  <div class="result-big" id="projectquote-main"></div>
+  <div class="result-grid">
+    <div class="result-item" id="projectquote-base"></div>
+    <div class="result-item" id="projectquote-buffered"></div>
+    <div class="result-item" id="projectquote-deposit"></div>
+    <div class="result-item"><strong>Next move</strong><span>Use the quote as the base for a proposal and scope document.</span></div>
+  </div>
+  <p class="note" id="projectquote-note"></p>
+  <div class="copy-row"><button class="btn btn-secondary" data-copy-target="#projectquote-result" type="button">Copy result</button><button class="btn btn-secondary" data-share="#projectquote-result" type="button">Share</button></div>
+</div>
+
+      </article>
+
+      <article class="card content-card guide-content">
+        <h2>Why projects need a buffer</h2><p>Project work rarely lands exactly on the first estimate. A buffer protects you from revision creep, client delays, and hidden production time.</p>
+<h2>Include expenses separately</h2><p>If part of the work includes tools, travel, stock assets, or other direct costs, list them clearly instead of hiding them inside the base labor number.</p>
+<h2>Use the deposit suggestion</h2><p>A deposit is often useful for reserving time and lowering risk. This page gives one simple starting point you can adapt.</p>
+        <div class="callout" style="margin-top:22px">
+          <strong>Good follow-up question</strong>
+          <p>After getting the number, ask what decision this result should help with next: comparing offers, quoting work, setting a budget, building a fund, or speeding up debt payoff.</p>
+        </div>
+      </article>
+
+      <article class="card content-card faq">
+        <h2 style="margin-top:0">Frequently asked questions</h2>
+        <details><summary>Why include revision rounds?</summary><p>Because revision risk is one of the fastest ways for a quote to stop working.</p></details><details><summary>What is a reasonable deposit?</summary><p>Many freelancers use 30% to 50%, depending on project size and risk.</p></details><details><summary>Should I ever skip the buffer?</summary><p>Only when the scope is extremely tight and the client has a strong process history with you.</p></details>
+      </article>
+    </div>
+    <aside class="sticky-col">
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">What to focus on</h3>
+        <ul class="metric-list">
+          <li><strong>Main result</strong><span class="muted">Use the big number first, then compare the supporting numbers underneath.</span></li>
+          <li><strong>Scenario testing</strong><span class="muted">Change one input at a time so you can see what actually moves the outcome.</span></li>
+          <li><strong>Best next step</strong><span class="muted">Open a related tool or guide while the result is still fresh.</span></li>
+        </ul>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Related calculators</h3>
+        <div class="related-list"><a class="link-card" href="/calculators/freelance-rate-calculator"><strong>Freelance Rate Calculator</strong><small>Estimate a realistic freelance hourly rate from income target, tax, and billable hours.</small></a><a class="link-card" href="/calculators/side-hustle-profit-calculator"><strong>Side Hustle Profit Calculator</strong><small>Estimate monthly profit from income, fees, taxes, and recurring expenses.</small></a><a class="link-card" href="/calculators/creator-income-calculator"><strong>Creator Income Calculator</strong><small>Estimate sponsorship and product income from audience size, engagement, and offers.</small></a></div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Related guides</h3>
+        <div class="guide-list"><a class="link-card" href="/guides/how-to-quote-a-project"><strong>How to Quote a Project Without Underpricing the Work</strong><small>Turn hours, scope, and revision risk into a cleaner project price.</small></a><a class="link-card" href="/guides/how-to-price-freelance-work"><strong>How to Price Freelance Work Without Guessing</strong><small>Work backward from income goals, billable hours, and business costs.</small></a></div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Your recent results</h3>
+        <div class="stack" data-history="projectquote"></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>EarnPrism</h3>
+        <p>Practical calculators and guides for salary, freelance pricing, budgeting, debt payoff, and savings planning.</p>
+      </div>
+      <div>
+        <h3>Featured calculators</h3>
+        <ul><li><a href="/calculators/hourly-wage-to-salary">Hourly Wage to Salary Calculator</a></li><li><a href="/calculators/salary-to-hourly">Salary to Hourly Calculator</a></li><li><a href="/calculators/freelance-rate-calculator">Freelance Rate Calculator</a></li><li><a href="/calculators/50-30-20-budget-calculator">50/30/20 Budget Calculator</a></li><li><a href="/calculators/savings-goal-calculator">Savings Goal Calculator</a></li><li><a href="/calculators/emergency-fund-calculator">Emergency Fund Calculator</a></li></ul>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <ul><li><a href="/guides/how-to-ask-for-a-raise">How to Ask for a Raise With Numbers</a></li><li><a href="/guides/how-to-price-freelance-work">How to Price Freelance Work Without Guessing</a></li><li><a href="/guides/budget-on-irregular-income">How to Budget on Irregular Income</a></li><li><a href="/guides/how-to-build-an-emergency-fund">How to Build an Emergency Fund When Starting From Scratch</a></li></ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/calculators">All calculators</a></li>
+          <li><a href="/guides">All guides</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span data-current-year></span> EarnPrism. Practical tools for pay, freelance work, budgeting, debt payoff, and savings planning.</p>
+    </div>
+  </footer>
+  <div class="toast" id="toast" aria-live="polite"></div>
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/calculators.js" defer></script>
+</body>
+</html>

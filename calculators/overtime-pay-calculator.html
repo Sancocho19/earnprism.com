@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Overtime Pay Calculator | EarnPrism</title>
+  <meta name="description" content="Estimate regular pay, overtime pay, and total weekly earnings with a simple overtime pay calculator.">
+  <link rel="canonical" href="https://earnprism.com/calculators/overtime-pay-calculator">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Overtime Pay Calculator | EarnPrism">
+  <meta property="og:description" content="Estimate regular pay, overtime pay, and total weekly earnings with a simple overtime pay calculator.">
+  <meta property="og:url" content="https://earnprism.com/calculators/overtime-pay-calculator">
+  <meta property="og:image" content="https://earnprism.com/assets/img/og-default.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Overtime Pay Calculator", "url": "https://earnprism.com/calculators/overtime-pay-calculator", "description": "Estimate regular pay, overtime pay, and total weekly earnings with a simple overtime pay calculator.", "inLanguage": "en"}, {"@type": "SoftwareApplication", "name": "Overtime Pay Calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://earnprism.com/calculators/overtime-pay-calculator"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://earnprism.com/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://earnprism.com/calculators"}, {"@type": "ListItem", "position": 3, "name": "Overtime Pay Calculator", "item": "https://earnprism.com/calculators/overtime-pay-calculator"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I use double time?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter 2.0 as the overtime multiplier."}}, {"@type": "Question", "name": "What if overtime starts after 37.5 hours?", "acceptedAnswer": {"@type": "Answer", "text": "Change the threshold to match your contract or policy."}}, {"@type": "Question", "name": "Is this weekly or monthly?", "acceptedAnswer": {"@type": "Answer", "text": "This page estimates one work week. Use the hourly or salary tools for broader monthly planning."}}]}]}</script>
+</head>
+<body data-tool-slug="overtime-pay-calculator" data-tool-title="Overtime Pay Calculator" data-tool-path="/calculators/overtime-pay-calculator">
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="/" aria-label="EarnPrism home">
+        <span class="brand-mark">$</span>
+        <span>
+          <strong>EarnPrism</strong>
+          <small>Smart money tools for pay, freelance work, savings, and budgeting</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" aria-label="Primary"><a href="/">Home</a><a href="/calculators" class="is-active">Calculators</a><a href="/guides">Guides</a><a href="/about">About</a></nav>
+    </div>
+  </header>
+  <main>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-head">
+      <div class="breadcrumbs"><a href="/">Home</a> <span>›</span> <a href="/calculators">Calculators</a> <span>›</span> <span>Overtime Pay Calculator</span></div>
+      <span class="section-kicker">Work & pay</span>
+      <h1>Overtime Pay Calculator</h1>
+      <p>Estimate how much overtime adds to a normal work week.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container layout-2col">
+    <div>
+      <article class="card calculator-card">
+        <h2 style="margin-top:0">Run the calculator</h2>
+        <p class="muted" style="margin-top:0">Use this calculator to separate regular hours from overtime hours and see what the extra time may add to weekly pay.</p>
+        
+<form class="stack" data-calculator="overtime">
+  <div class="form-grid">
+    <div class="form-field"><label for="overtime-hourly">Base hourly pay</label><input id="overtime-hourly" type="number" min="0" step="0.01" value="22"></div>
+    <div class="form-field"><label for="overtime-currency">Currency</label><select id="overtime-currency"><option>USD</option><option>GBP</option><option>CAD</option><option>AUD</option><option>EUR</option></select></div>
+    <div class="form-field"><label for="overtime-hours">Total hours worked this week</label><input id="overtime-hours" type="number" min="0" step="0.5" value="48"></div>
+    <div class="form-field"><label for="overtime-threshold">Regular hours before overtime starts</label><input id="overtime-threshold" type="number" min="1" step="0.5" value="40"></div>
+    <div class="form-field"><label for="overtime-multiplier">Overtime multiplier</label><input id="overtime-multiplier" type="number" min="1" step="0.1" value="1.5"></div>
+  </div>
+  <div class="form-actions"><button class="btn btn-primary" type="submit">Calculate overtime</button><button class="btn btn-secondary" type="reset">Reset</button></div>
+</form>
+<div class="result-card hide" id="overtime-result">
+  <h3>Estimated weekly pay</h3>
+  <div class="result-big" id="overtime-main"></div>
+  <div class="result-grid">
+    <div class="result-item" id="overtime-regular"></div>
+    <div class="result-item" id="overtime-extra"></div>
+    <div class="result-item" id="overtime-overtimehours"></div>
+    <div class="result-item"><strong>Next move</strong><span>Compare this week with your normal hourly-to-salary estimate.</span></div>
+  </div>
+  <p class="note" id="overtime-note"></p>
+  <div class="copy-row"><button class="btn btn-secondary" data-copy-target="#overtime-result" type="button">Copy result</button><button class="btn btn-secondary" data-share="#overtime-result" type="button">Share</button></div>
+</div>
+
+      </article>
+
+      <article class="card content-card guide-content">
+        <h2>Why overtime changes the math</h2><p>Overtime can meaningfully raise weekly income, but it can also create irregular pay. This tool helps separate what came from normal hours and what came from extra time.</p>
+<h2>Check the policy first</h2><p>Overtime rules vary by employer, location, and contract. Use the multiplier that matches your real situation, then treat the result as a planning estimate.</p>
+<h2>Use it with salary planning</h2><p>If overtime is frequent, use this page alongside the budget calculator so your fixed monthly costs do not rely too heavily on extra hours.</p>
+        <div class="callout" style="margin-top:22px">
+          <strong>Good follow-up question</strong>
+          <p>After getting the number, ask what decision this result should help with next: comparing offers, quoting work, setting a budget, building a fund, or speeding up debt payoff.</p>
+        </div>
+      </article>
+
+      <article class="card content-card faq">
+        <h2 style="margin-top:0">Frequently asked questions</h2>
+        <details><summary>Can I use double time?</summary><p>Yes. Enter 2.0 as the overtime multiplier.</p></details><details><summary>What if overtime starts after 37.5 hours?</summary><p>Change the threshold to match your contract or policy.</p></details><details><summary>Is this weekly or monthly?</summary><p>This page estimates one work week. Use the hourly or salary tools for broader monthly planning.</p></details>
+      </article>
+    </div>
+    <aside class="sticky-col">
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">What to focus on</h3>
+        <ul class="metric-list">
+          <li><strong>Main result</strong><span class="muted">Use the big number first, then compare the supporting numbers underneath.</span></li>
+          <li><strong>Scenario testing</strong><span class="muted">Change one input at a time so you can see what actually moves the outcome.</span></li>
+          <li><strong>Best next step</strong><span class="muted">Open a related tool or guide while the result is still fresh.</span></li>
+        </ul>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Related calculators</h3>
+        <div class="related-list"><a class="link-card" href="/calculators/hourly-wage-to-salary"><strong>Hourly Wage to Salary Calculator</strong><small>Convert hourly pay into weekly, monthly, and yearly income.</small></a><a class="link-card" href="/calculators/salary-to-hourly"><strong>Salary to Hourly Calculator</strong><small>Convert annual salary into hourly, weekly, and monthly pay.</small></a><a class="link-card" href="/calculators/50-30-20-budget-calculator"><strong>50/30/20 Budget Calculator</strong><small>Split monthly income into needs, wants, and savings with one quick budget tool.</small></a></div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Related guides</h3>
+        <div class="guide-list"><a class="link-card" href="/guides/how-to-calculate-overtime-pay"><strong>How to Calculate Overtime Pay Without Guessing</strong><small>Use a simple method to estimate what extra hours add to pay.</small></a><a class="link-card" href="/guides/salary-vs-hourly-pay"><strong>Salary vs Hourly Pay: How to Compare the Real Value</strong><small>Compare salaried and hourly work with a clearer planning lens.</small></a></div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Your recent results</h3>
+        <div class="stack" data-history="overtime"></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>EarnPrism</h3>
+        <p>Practical calculators and guides for salary, freelance pricing, budgeting, debt payoff, and savings planning.</p>
+      </div>
+      <div>
+        <h3>Featured calculators</h3>
+        <ul><li><a href="/calculators/hourly-wage-to-salary">Hourly Wage to Salary Calculator</a></li><li><a href="/calculators/salary-to-hourly">Salary to Hourly Calculator</a></li><li><a href="/calculators/freelance-rate-calculator">Freelance Rate Calculator</a></li><li><a href="/calculators/50-30-20-budget-calculator">50/30/20 Budget Calculator</a></li><li><a href="/calculators/savings-goal-calculator">Savings Goal Calculator</a></li><li><a href="/calculators/emergency-fund-calculator">Emergency Fund Calculator</a></li></ul>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <ul><li><a href="/guides/how-to-ask-for-a-raise">How to Ask for a Raise With Numbers</a></li><li><a href="/guides/how-to-price-freelance-work">How to Price Freelance Work Without Guessing</a></li><li><a href="/guides/budget-on-irregular-income">How to Budget on Irregular Income</a></li><li><a href="/guides/how-to-build-an-emergency-fund">How to Build an Emergency Fund When Starting From Scratch</a></li></ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/calculators">All calculators</a></li>
+          <li><a href="/guides">All guides</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span data-current-year></span> EarnPrism. Practical tools for pay, freelance work, budgeting, debt payoff, and savings planning.</p>
+    </div>
+  </footer>
+  <div class="toast" id="toast" aria-live="polite"></div>
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/calculators.js" defer></script>
+</body>
+</html>
