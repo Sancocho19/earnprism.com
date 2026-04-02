@@ -32,9 +32,9 @@
       const text = target.innerText.trim();
       try{
         await navigator.clipboard.writeText(text);
-        window.showToast('Resultado copiado');
+        window.showToast('Result copied');
       }catch(err){
-        window.showToast('No se pudo copiar');
+        window.showToast('Could not copy');
       }
     });
   });
@@ -54,7 +54,7 @@
           await navigator.share(shareData);
         }else{
           await navigator.clipboard.writeText(`${text}\n${location.href}`);
-          window.showToast('Enlace copiado');
+          window.showToast('Link copied');
         }
       }catch(err){}
     });
@@ -66,7 +66,7 @@
   const toolPath = body.getAttribute('data-tool-path');
 
   if(toolSlug && toolTitle && toolPath){
-    const key = 'ingresolab_recent_tools';
+    const key = 'incomegrid_recent_tools';
     let recent = [];
     try{
       recent = JSON.parse(localStorage.getItem(key) || '[]');
@@ -81,13 +81,13 @@
   if(recentContainer){
     let recent = [];
     try{
-      recent = JSON.parse(localStorage.getItem('ingresolab_recent_tools') || '[]');
+      recent = JSON.parse(localStorage.getItem('incomegrid_recent_tools') || '[]');
     }catch(err){}
     if(!recent.length){
-      recentContainer.innerHTML = '<p class="muted">Todavía no has abierto herramientas. Aquí aparecerán las más recientes.</p>';
+      recentContainer.innerHTML = '<p class="muted">No tools opened yet. Your most recent calculators will appear here.</p>';
     }else{
       recentContainer.innerHTML = recent.map(item => (
-        `<a class="link-card" href="${item.path}">${item.title}<small>Vuelve a abrir esta calculadora</small></a>`
+        `<a class="link-card" href="${item.path}">${item.title}<small>Open this calculator again</small></a>`
       )).join('');
     }
   }

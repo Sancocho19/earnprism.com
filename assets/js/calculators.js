@@ -1,41 +1,38 @@
 
 (function(){
-  function q(selector, scope=document){ return scope.querySelector(selector); }
-  function qa(selector, scope=document){ return Array.from(scope.querySelectorAll(selector)); }
+  const q = (selector) => document.querySelector(selector);
 
   function getNum(id){
-    const el = document.getElementById(id);
-    if(!el) return 0;
-    const value = parseFloat(String(el.value).replace(',', '.'));
+    const value = parseFloat(document.getElementById(id).value || '0');
     return Number.isFinite(value) ? value : 0;
   }
 
   function money(n, currency='USD'){
     try{
-      return new Intl.NumberFormat('es-ES', {
+      return new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency,
-        maximumFractionDigits: 0
+        maximumFractionDigits: n < 100 ? 2 : 0
       }).format(n);
     }catch(err){
-      return `${currency} ${Math.round(n).toLocaleString('es-ES')}`;
+      return `${currency} ${Math.round(n).toLocaleString('en-US')}`;
     }
   }
 
   function number(n, digits=0){
-    return new Intl.NumberFormat('es-ES', {
+    return new Intl.NumberFormat('en-US', {
       maximumFractionDigits: digits,
       minimumFractionDigits: digits
     }).format(n);
   }
 
   function saveHistory(tool, summary){
-    const key = `ingresolab_history_${tool}`;
+    const key = `incomegrid_history_${tool}`;
     let items = [];
     try{
       items = JSON.parse(localStorage.getItem(key) || '[]');
     }catch(err){}
-    items.unshift({ date: new Date().toLocaleString('es-CO'), summary });
+    items.unshift({ date: new Date().toLocaleString('en-US'), summary });
     items = items.slice(0, 6);
     localStorage.setItem(key, JSON.stringify(items));
     renderHistory(tool);
@@ -46,10 +43,10 @@
     if(!container) return;
     let items = [];
     try{
-      items = JSON.parse(localStorage.getItem(`ingresolab_history_${tool}`) || '[]');
+      items = JSON.parse(localStorage.getItem(`incomegrid_history_${tool}`) || '[]');
     }catch(err){}
     if(!items.length){
-      container.innerHTML = '<p class="muted">Tus últimos resultados aparecerán aquí en este navegador.</p>';
+      container.innerHTML = '<p class="muted">Your last results will appear here on this browser.</p>';
       return;
     }
     container.innerHTML = items.map(item => (
@@ -79,11 +76,11 @@
 
     q('#salary-result').classList.remove('hide');
     q('#salary-main').textContent = money(monthly, currency);
-    q('#salary-weekly').innerHTML = `<strong>${money(weekly, currency)}</strong><span>Por semana</span>`;
-    q('#salary-annual').innerHTML = `<strong>${money(annual, currency)}</strong><span>Por año</span>`;
-    q('#salary-daily').innerHTML = `<strong>${money(daily, currency)}</strong><span>Por día laborable</span>`;
-    q('#salary-note').textContent = `Con ${number(hours)} horas por semana y ${number(weeks)} semanas pagadas, tu ingreso mensual aproximado sería ${money(monthly, currency)}.`;
-    saveHistory('salary', `${money(hourly, currency)}/h ≈ ${money(monthly, currency)}/mes`);
+    q('#salary-weekly').innerHTML = `<strong>${money(weekly, currency)}</strong><span>Per week</span>`;
+    q('#salary-annual').innerHTML = `<strong>${money(annual, currency)}</strong><span>Per year</span>`;
+    q('#salary-daily').innerHTML = `<strong>${money(daily, currency)}</strong><span>Per work day</span>`;
+    q('#salary-note').textContent = `With ${number(hours)} hours per week and ${number(weeks)} paid weeks per year, your estimated monthly income would be ${money(monthly, currency)}.`;
+    saveHistory('salary', `${money(hourly, currency)}/hr ≈ ${money(monthly, currency)}/month`);
   });
 
   attachSubmit('[data-calculator="freelance"]', 'freelance', () => {
@@ -102,11 +99,11 @@
 
     q('#freelance-result').classList.remove('hide');
     q('#freelance-main').textContent = money(hourlyRate, currency);
-    q('#freelance-hour').innerHTML = `<strong>${money(hourlyRate, currency)}</strong><span>Tarifa por hora recomendada</span>`;
-    q('#freelance-day').innerHTML = `<strong>${money(dailyRate, currency)}</strong><span>Tarifa por día de 6 horas</span>`;
-    q('#freelance-project').innerHTML = `<strong>${money(projectBase, currency)}</strong><span>Piso para proyecto de 20 horas</span>`;
-    q('#freelance-note').textContent = `Para quedarte con ${money(target, currency)} al año, cubriendo impuestos y gastos, deberías cobrar alrededor de ${money(hourlyRate, currency)} por hora facturable.`;
-    saveHistory('freelance', `${money(hourlyRate, currency)}/hora para meta de ${money(target, currency)}`);
+    q('#freelance-hour').innerHTML = `<strong>${money(hourlyRate, currency)}</strong><span>Suggested hourly floor</span>`;
+    q('#freelance-day').innerHTML = `<strong>${money(dailyRate, currency)}</strong><span>Approx. 6-hour day rate</span>`;
+    q('#freelance-project').innerHTML = `<strong>${money(projectBase, currency)}</strong><span>Base for a 20-hour project</span>`;
+    q('#freelance-note').textContent = `To keep ${money(target, currency)} per year after taxes and overhead, you would need to charge about ${money(hourlyRate, currency)} per billable hour.`;
+    saveHistory('freelance', `${money(hourlyRate, currency)}/hour for ${money(target, currency)} target`);
   });
 
   attachSubmit('[data-calculator="creator"]', 'creator', () => {
@@ -129,12 +126,12 @@
 
     q('#creator-result').classList.remove('hide');
     q('#creator-main').textContent = money(combined, currency);
-    q('#creator-sponsor').innerHTML = `<strong>${money(sponsorLow, currency)} – ${money(sponsorHigh, currency)}</strong><span>Rango estimado de patrocinios al mes</span>`;
-    q('#creator-product').innerHTML = `<strong>${money(productRevenue, currency)}</strong><span>Ventas potenciales de producto o comunidad</span>`;
-    q('#creator-engaged').innerHTML = `<strong>${number(engagedAudience)}</strong><span>Audiencia comprometida aproximada</span>`;
+    q('#creator-sponsor').innerHTML = `<strong>${money(sponsorLow, currency)} – ${money(sponsorHigh, currency)}</strong><span>Estimated monthly sponsorship range</span>`;
+    q('#creator-product').innerHTML = `<strong>${money(productRevenue, currency)}</strong><span>Potential product or community revenue</span>`;
+    q('#creator-engaged').innerHTML = `<strong>${number(engagedAudience)}</strong><span>Approx. engaged audience</span>`;
     q('#creator-progress span').style.width = `${progress}%`;
-    q('#creator-note').textContent = `No es una promesa de ingresos. Es una forma de convertir seguidores, engagement y oferta en un rango más útil para planear contenido, cierres y metas.`;
-    saveHistory('creator', `${number(followers)} seguidores ≈ ${money(combined, currency)}/mes`);
+    q('#creator-note').textContent = `This is not an income promise. It is a planning model that converts followers, engagement, and offers into a more useful range.`;
+    saveHistory('creator', `${number(followers)} followers ≈ ${money(combined, currency)}/month`);
   });
 
   attachSubmit('[data-calculator="raise"]', 'raise', () => {
@@ -152,11 +149,11 @@
 
     q('#raise-result').classList.remove('hide');
     q('#raise-main').textContent = `${number(realGainPct, 2)}%`;
-    q('#raise-gross').innerHTML = `<strong>${money(diff, currency)}</strong><span>Aumento bruto anual</span>`;
-    q('#raise-net').innerHTML = `<strong>${money(afterTax, currency)}</strong><span>Aumento anual después de impuestos</span>`;
-    q('#raise-month').innerHTML = `<strong>${money(monthlyNet, currency)}</strong><span>Impacto neto mensual</span>`;
-    q('#raise-note').textContent = `Tu nuevo salario sería ${money(newSalary, currency)} al año. Ajustando por inflación, tu mejora real ronda ${number(realGainPct, 2)}%.`;
-    saveHistory('raise', `Aumento real ${number(realGainPct,2)}% | +${money(monthlyNet, currency)}/mes`);
+    q('#raise-gross').innerHTML = `<strong>${money(diff, currency)}</strong><span>Gross annual raise</span>`;
+    q('#raise-net').innerHTML = `<strong>${money(afterTax, currency)}</strong><span>Annual raise after tax</span>`;
+    q('#raise-month').innerHTML = `<strong>${money(monthlyNet, currency)}</strong><span>Approx. net monthly impact</span>`;
+    q('#raise-note').textContent = `Your new salary would be ${money(newSalary, currency)} per year. After inflation, your real gain is about ${number(realGainPct, 2)}%.`;
+    saveHistory('raise', `Real raise ${number(realGainPct,2)}% | +${money(monthlyNet, currency)}/month`);
   });
 
   attachSubmit('[data-calculator="budget"]', 'budget', () => {
@@ -168,14 +165,14 @@
 
     q('#budget-result').classList.remove('hide');
     q('#budget-main').textContent = money(savings, currency);
-    q('#budget-needs').innerHTML = `<strong>${money(needs, currency)}</strong><span>Necesidades</span>`;
-    q('#budget-wants').innerHTML = `<strong>${money(wants, currency)}</strong><span>Gustos</span>`;
-    q('#budget-savings').innerHTML = `<strong>${money(savings, currency)}</strong><span>Ahorro o deuda</span>`;
+    q('#budget-needs').innerHTML = `<strong>${money(needs, currency)}</strong><span>Needs</span>`;
+    q('#budget-wants').innerHTML = `<strong>${money(wants, currency)}</strong><span>Wants</span>`;
+    q('#budget-savings').innerHTML = `<strong>${money(savings, currency)}</strong><span>Savings or extra debt payoff</span>`;
     q('#budget-needs-bar').style.width = '50%';
     q('#budget-wants-bar').style.width = '30%';
     q('#budget-savings-bar').style.width = '20%';
-    q('#budget-note').textContent = `Si tu ingreso mensual neto es ${money(income, currency)}, una distribución 50/30/20 reservaría ${money(savings, currency)} para ahorro, inversión o pago de deuda.`;
-    saveHistory('budget', `${money(income, currency)}/mes → ${money(savings, currency)} ahorro`);
+    q('#budget-note').textContent = `If your monthly take-home income is ${money(income, currency)}, a 50/30/20 split would reserve ${money(savings, currency)} for saving, investing, or faster debt payoff.`;
+    saveHistory('budget', `${money(income, currency)}/month → ${money(savings, currency)} savings`);
   });
 
   attachSubmit('[data-calculator="savings"]', 'savings', () => {
@@ -199,12 +196,12 @@
     const progress = Math.min(100, Math.max(3, (current / Math.max(goal,1)) * 100));
 
     q('#savings-result').classList.remove('hide');
-    q('#savings-main').textContent = `${number(months)} meses`;
-    q('#savings-time').innerHTML = `<strong>${number(years, 1)} años</strong><span>Tiempo estimado</span>`;
-    q('#savings-interest').innerHTML = `<strong>${money(interest, currency)}</strong><span>Interés aproximado ganado</span>`;
-    q('#savings-final').innerHTML = `<strong>${money(balance, currency)}</strong><span>Saldo estimado al llegar</span>`;
+    q('#savings-main').textContent = `${number(months)} months`;
+    q('#savings-time').innerHTML = `<strong>${number(years, 1)} years</strong><span>Estimated timeline</span>`;
+    q('#savings-interest').innerHTML = `<strong>${money(interest, currency)}</strong><span>Estimated interest earned</span>`;
+    q('#savings-final').innerHTML = `<strong>${money(balance, currency)}</strong><span>Estimated balance at the target point</span>`;
     q('#savings-progress span').style.width = `${progress}%`;
-    q('#savings-note').textContent = `Ahorrando ${money(monthly, currency)} al mes, tardarías cerca de ${number(months)} meses en alcanzar ${money(goal, currency)} desde un punto de partida de ${money(current, currency)}.`;
-    saveHistory('savings', `${money(goal, currency)} en ${number(months)} meses`);
+    q('#savings-note').textContent = `Saving ${money(monthly, currency)} each month, you would take about ${number(months)} months to reach ${money(goal, currency)} starting from ${money(current, currency)}.`;
+    saveHistory('savings', `${money(goal, currency)} in ${number(months)} months`);
   });
 })();
