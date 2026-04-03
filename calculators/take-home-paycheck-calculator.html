@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Take-Home Paycheck Calculator | EarnPrism</title>
+  <meta name="description" content="Estimate take-home monthly pay from annual salary, tax rate, and payroll deductions.">
+  <link rel="canonical" href="https://earnprism.com/calculators/take-home-paycheck-calculator">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Take-Home Paycheck Calculator | EarnPrism">
+  <meta property="og:description" content="Estimate take-home monthly pay from annual salary, tax rate, and payroll deductions.">
+  <meta property="og:url" content="https://earnprism.com/calculators/take-home-paycheck-calculator">
+  <meta property="og:image" content="https://earnprism.com/assets/img/og-default.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "Take-Home Paycheck Calculator", "url": "https://earnprism.com/calculators/take-home-paycheck-calculator", "description": "Estimate take-home monthly pay from annual salary, tax rate, and payroll deductions.", "inLanguage": "en"}, {"@type": "SoftwareApplication", "name": "Take-Home Paycheck Calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://earnprism.com/calculators/take-home-paycheck-calculator"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://earnprism.com/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://earnprism.com/calculators"}, {"@type": "ListItem", "position": 3, "name": "Take-Home Paycheck Calculator", "item": "https://earnprism.com/calculators/take-home-paycheck-calculator"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this the same as a payroll calculator?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a fast estimate designed for planning and comparisons."}}, {"@type": "Question", "name": "Should I include retirement contributions?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if they reduce your usable paycheck. Enter them in the deductions field."}}, {"@type": "Question", "name": "Why use take-home pay for budgeting?", "acceptedAnswer": {"@type": "Answer", "text": "Because it reflects the cash that actually hits your account."}}]}]}</script>
+</head>
+<body data-tool-slug="take-home-paycheck-calculator" data-tool-title="Take-Home Paycheck Calculator" data-tool-path="/calculators/take-home-paycheck-calculator">
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="/" aria-label="EarnPrism home">
+        <span class="brand-mark">$</span>
+        <span>
+          <strong>EarnPrism</strong>
+          <small>Smart money tools for pay, freelance work, savings, debt, and planning</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" aria-label="Primary"><a href="/">Home</a><a href="/calculators" class="is-active">Calculators</a><a href="/guides">Guides</a><a href="/methodology">Methodology</a><a href="/about">About</a></nav>
+    </div>
+  </header>
+  <main>
+<section class="page-hero">
+  <div class="container">
+    <div class="page-head">
+      <div class="breadcrumbs"><a href="/">Home</a> <span>›</span> <a href="/calculators">Calculators</a> <span>›</span> <span>Take-Home Paycheck Calculator</span></div>
+      <span class="section-kicker">Work &amp; pay</span>
+      <h1>Take-Home Paycheck Calculator</h1>
+      <p>Estimate take-home monthly pay from annual salary, tax rate, and payroll deductions.</p>
+      <div class="meta-chips"><span class="pill">Updated April 2026</span><span class="pill">Planning estimates</span><span class="pill">Free browser tool</span></div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container layout-2col">
+    <div>
+      <article class="card calculator-card">
+        <div class="page-meta-line"><strong>Last updated:</strong> April 2026 <span class="dot">•</span> <strong>Best for:</strong> Take-home pay</div>
+        <h2 style="margin-top:10px">Run the calculator</h2>
+        <p class="muted" style="margin-top:0">Turn a gross salary into a simpler take-home estimate after tax and deductions so budgeting starts from a more realistic number.</p>
+        
+<form class="stack" data-calculator="takehome">
+  <div class="form-grid">
+    <div class="form-field"><label for="takehome-salary">Gross annual salary</label><input id="takehome-salary" type="number" min="0" step="100" value="70000"></div>
+    <div class="form-field"><label for="takehome-currency">Currency</label><select id="takehome-currency"><option>USD</option><option>GBP</option><option>CAD</option><option>AUD</option><option>EUR</option></select></div>
+    <div class="form-field"><label for="takehome-tax">Estimated effective tax rate (%)</label><input id="takehome-tax" type="number" min="0" step="0.1" value="24"></div>
+    <div class="form-field"><label for="takehome-deductions">Annual deductions</label><input id="takehome-deductions" type="number" min="0" step="1" value="3500"></div>
+  </div>
+  <div class="form-actions"><button class="btn btn-primary" type="submit">Estimate take-home pay</button><button class="btn btn-secondary" type="reset">Reset</button></div>
+</form>
+<div class="result-card hide" id="takehome-result">
+  <h3>Estimated monthly take-home pay</h3>
+  <div class="result-big" id="takehome-main"></div>
+  <div class="result-grid">
+    <div class="result-item" id="takehome-annual"></div>
+    <div class="result-item" id="takehome-biweekly"></div>
+    <div class="result-item" id="takehome-deductioncard"></div>
+    <div class="result-item"><strong>Good next step</strong><span>Use this result as the starting point for budgeting and savings planning.</span></div>
+  </div>
+  <p class="note" id="takehome-note"></p>
+  <div class="copy-row"><button class="btn btn-secondary" data-copy-target="#takehome-result" type="button">Copy result</button><button class="btn btn-secondary" data-share="#takehome-result" type="button">Share</button></div>
+</div>
+
+      </article>
+
+      <article class="card content-card guide-content">
+        <h2>What this calculator helps answer</h2>
+        <p>Turn a gross salary into a simpler take-home estimate after tax and deductions so budgeting starts from a more realistic number.</p>
+        <h2>When this estimate is useful</h2>
+        <ul><li>Build a budget from take-home rather than gross pay.</li><li>Compare two offers with different deduction assumptions.</li><li>Estimate how benefit deductions change monthly cash flow.</li></ul>
+        <h2>How to use the number well</h2>
+        <p>The calculator applies a simple tax estimate to gross annual salary, subtracts annual deductions, and converts the result into monthly and biweekly take-home pay.</p>
+        <h2>What can change the result</h2>
+        <p>This is a planning estimate, not payroll software. Real withholding, brackets, local taxes, and pre-tax benefits can change the exact paycheck.</p>
+        <div class="callout" style="margin-top:22px">
+          <strong>Good follow-up move</strong>
+          <p>Once you have the number, open one related tool and one related guide. That usually turns a single estimate into a better decision.</p>
+        </div>
+      </article>
+
+<article class="card content-card guide-content">
+        <h2 style="margin-top:0">What changes the estimate most</h2>
+        <p>The biggest drivers are usually tax rate, retirement contributions, health insurance, and any payroll deductions that reduce the cash that actually reaches your account.</p>
+        <p>If you are comparing offers, run one conservative scenario and one optimistic scenario. That gives a more useful range than trusting one neat paycheck number.</p>
+      </article>
+
+            <div class="card content-card">
+        <h2 style="margin-top:0">How this page estimates the result</h2>
+        <div class="table-like">
+          <div class="table-row"><strong>Method</strong><span>The calculator applies a simple tax estimate to gross annual salary, subtracts annual deductions, and converts the result into monthly and biweekly take-home pay.</span></div>
+          <div class="table-row"><strong>Best use</strong><span>Turn a gross salary into a simpler take-home estimate after tax and deductions so budgeting starts from a more realistic number.</span></div>
+          <div class="table-row"><strong>Limits</strong><span>This is a planning estimate, not payroll software. Real withholding, brackets, local taxes, and pre-tax benefits can change the exact paycheck.</span></div>
+        </div>
+        <p class="note">This page is for planning and education. For tax, payroll, or lender-specific decisions, verify details with the relevant provider.</p>
+      </div>
+
+      <article class="card content-card faq">
+        <h2 style="margin-top:0">Frequently asked questions</h2>
+        <details><summary>Is this the same as a payroll calculator?</summary><p>No. It is a fast estimate designed for planning and comparisons.</p></details><details><summary>Should I include retirement contributions?</summary><p>Yes, if they reduce your usable paycheck. Enter them in the deductions field.</p></details><details><summary>Why use take-home pay for budgeting?</summary><p>Because it reflects the cash that actually hits your account.</p></details>
+      </article>
+    </div>
+    <aside class="sticky-col">
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Use this result well</h3>
+        <ul class="metric-list">
+          <li><strong>Run at least two scenarios</strong><span class="muted">Change one input at a time so you can see which assumption is really driving the output.</span></li>
+          <li><strong>Plan from the monthly view</strong><span class="muted">Monthly numbers usually connect better to bills, savings, and debt than yearly headlines alone.</span></li>
+          <li><strong>Check a next-step page immediately</strong><span class="muted">The best result is usually the one that leads into a budget, quote, debt plan, or savings decision.</span></li>
+        </ul>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Related calculators</h3>
+        <div class="related-list"><a class="link-card" href="/calculators/compound-interest-calculator"><strong>Compound Interest Calculator</strong><small>Project future savings growth using contributions, rate, and time.</small></a><a class="link-card" href="/calculators/net-worth-calculator"><strong>Net Worth Calculator</strong><small>Calculate net worth by subtracting debts from assets.</small></a><a class="link-card" href="/calculators/debt-to-income-calculator"><strong>Debt-to-Income Calculator</strong><small>Estimate debt-to-income ratio from monthly debt payments and gross income.</small></a></div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Related guides</h3>
+        <div class="guide-list"><a class="link-card" href="/guides/how-to-calculate-overtime-pay"><strong>How to Calculate Overtime Pay More Clearly</strong><small>Use thresholds, multipliers, and realistic schedules to understand overtime pay more clearly.</small></a><a class="link-card" href="/guides/salary-vs-hourly-pay"><strong>Salary vs Hourly Pay: How to Compare the Real Value</strong><small>Compare salaried and hourly work using effective hourly value, stability, overtime, and flexibility.</small></a></div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Trust notes</h3>
+        <div class="stack">
+          <div class="link-card"><strong>Updated April 2026</strong><small>Reviewed for clarity and internal linking.</small></div>
+          <a class="link-card" href="/methodology"><strong>Read the methodology</strong><small>See how EarnPrism approaches estimates and limitations.</small></a>
+          <a class="link-card" href="/editorial-standards"><strong>Editorial standards</strong><small>How pages are reviewed, corrected, and expanded.</small></a>
+        </div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Your recent results</h3>
+        <div class="stack" data-history="takehome"></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>EarnPrism</h3>
+        <p>Planning-first calculators and guides for salary, hourly pay, freelance pricing, debt payoff, savings, and practical money decisions.</p>
+        <p class="muted">Updated and expanded regularly. Estimates are for planning and education, not payroll, tax, or legal advice.</p>
+      </div>
+      <div>
+        <h3>Featured calculators</h3>
+        <ul><li><a href="/calculators/hourly-wage-to-salary">Hourly Wage to Salary Calculator</a></li><li><a href="/calculators/take-home-paycheck-calculator">Take-Home Paycheck Calculator</a></li><li><a href="/calculators/freelance-rate-calculator">Freelance Rate Calculator</a></li><li><a href="/calculators/raise-calculator">Raise Calculator</a></li><li><a href="/calculators/debt-payoff-calculator">Debt Payoff Calculator</a></li><li><a href="/calculators/compound-interest-calculator">Compound Interest Calculator</a></li></ul>
+      </div>
+      <div>
+        <h3>Featured guides</h3>
+        <ul><li><a href="/guides/how-to-ask-for-a-raise">How to Ask for a Raise With Numbers</a></li><li><a href="/guides/how-to-price-freelance-work">How to Price Freelance Work Without Guessing</a></li><li><a href="/guides/how-to-calculate-take-home-pay">How to Estimate Take-Home Pay More Realistically</a></li><li><a href="/guides/how-compound-interest-builds-savings">How Compound Interest Builds Savings Over Time</a></li></ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/calculators">All calculators</a></li>
+          <li><a href="/guides">All guides</a></li>
+          <li><a href="/methodology">Methodology</a></li>
+          <li><a href="/editorial-standards">Editorial standards</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span data-current-year></span> EarnPrism. Built for practical money planning.</p>
+    </div>
+  </footer>
+  <div class="toast" id="toast" aria-live="polite"></div>
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/calculators.js" defer></script>
+</body>
+</html>
