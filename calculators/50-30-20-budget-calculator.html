@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>50/30/20 Budget Calculator | EarnPrism</title>
+  <meta name="description" content="Split monthly income into needs, wants, and savings with a simple 50/30/20 budget calculator.">
+  <link rel="canonical" href="https://earnprism.com/calculators/50-30-20-budget-calculator">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="50/30/20 Budget Calculator | EarnPrism">
+  <meta property="og:description" content="Split monthly income into needs, wants, and savings with a simple 50/30/20 budget calculator.">
+  <meta property="og:url" content="https://earnprism.com/calculators/50-30-20-budget-calculator">
+  <meta property="og:image" content="https://earnprism.com/assets/img/og-default.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "name": "50/30/20 Budget Calculator", "url": "https://earnprism.com/calculators/50-30-20-budget-calculator", "description": "Split monthly income into needs, wants, and savings with a simple 50/30/20 budget calculator.", "inLanguage": "en"}, {"@type": "SoftwareApplication", "name": "50/30/20 Budget Calculator", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://earnprism.com/calculators/50-30-20-budget-calculator"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://earnprism.com/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://earnprism.com/calculators"}, {"@type": "ListItem", "position": 3, "name": "50/30/20 Budget Calculator", "item": "https://earnprism.com/calculators/50-30-20-budget-calculator"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the 50/30/20 rule fit everyone?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is a starting point, not a law. Adjust the categories to fit your actual expenses and goals."}}, {"@type": "Question", "name": "Should extra debt payments count as savings?", "acceptedAnswer": {"@type": "Answer", "text": "Many people place them in the same strategic bucket because both improve future cash flow."}}, {"@type": "Question", "name": "What if my needs are already above 50 percent?", "acceptedAnswer": {"@type": "Answer", "text": "Use the split as a signal. It may point to a housing, income, or debt problem worth addressing."}}]}]}</script>
+</head>
+<body data-tool-slug="50-30-20-budget-calculator" data-tool-title="50/30/20 Budget Calculator" data-tool-path="/calculators/50-30-20-budget-calculator">
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="/" aria-label="EarnPrism home">
+        <span class="brand-mark">$</span>
+        <span>
+          <strong>EarnPrism</strong>
+          <small>Smart money tools for pay, freelance work, savings, debt, and planning</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" aria-label="Primary"><a href="/">Home</a><a href="/calculators" class="is-active">Calculators</a><a href="/guides">Guides</a><a href="/methodology">Methodology</a><a href="/about">About</a></nav>
+    </div>
+  </header>
+  <main>
+<section class="page-hero">
+  <div class="container">
+    <div class="page-head">
+      <div class="breadcrumbs"><a href="/">Home</a> <span>›</span> <a href="/calculators">Calculators</a> <span>›</span> <span>50/30/20 Budget Calculator</span></div>
+      <span class="section-kicker">Budgeting</span>
+      <h1>50/30/20 Budget Calculator</h1>
+      <p>Split monthly income into needs, wants, and savings with a simple 50/30/20 budget calculator.</p>
+      <div class="meta-chips"><span class="pill">Updated April 2026</span><span class="pill">Budgeting</span><span class="pill">Free browser tool</span></div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container layout-2col">
+    <div>
+      <article class="card calculator-card">
+        <div class="page-meta-line"><strong>Last updated:</strong> April 2026 <span class="dot">•</span> <strong>Best for:</strong> Budgeting</div>
+        <h2 style="margin-top:10px">Run the calculator</h2>
+        <p class="muted" style="margin-top:0">Turn monthly income into a cleaner budget split for needs, wants, and savings or extra debt payoff.</p>
+        
+<form class="stack" data-calculator="budget">
+  <div class="form-grid">
+    <div class="form-field"><label for="budget-income">Monthly take-home income</label><input id="budget-income" type="number" min="0" step="1" value="4500"></div>
+    <div class="form-field"><label for="budget-currency">Currency</label><select id="budget-currency"><option>USD</option><option>GBP</option><option>CAD</option><option>AUD</option><option>EUR</option></select></div>
+  </div>
+  <div class="form-actions"><button class="btn btn-primary" type="submit">Split the budget</button><button class="btn btn-secondary" type="reset">Reset</button></div>
+</form>
+<div class="result-card hide" id="budget-result">
+  <h3>Suggested savings bucket</h3>
+  <div class="result-big" id="budget-main"></div>
+  <div class="result-grid">
+    <div class="result-item" id="budget-needs"></div>
+    <div class="result-item" id="budget-wants"></div>
+    <div class="result-item" id="budget-savings"></div>
+    <div class="result-item"><strong>Good next step</strong><span>Direct the savings bucket toward an emergency fund, debt payoff, or a savings goal.</span></div>
+  </div>
+  <div class="table-like">
+    <div class="table-row"><strong>Needs</strong><span id="budget-needs-bar"></span></div>
+    <div class="table-row"><strong>Wants</strong><span id="budget-wants-bar"></span></div>
+    <div class="table-row"><strong>Savings</strong><span id="budget-savings-bar"></span></div>
+  </div>
+  <p class="note" id="budget-note"></p>
+  <div class="copy-row"><button class="btn btn-secondary" data-copy-target="#budget-result" type="button">Copy result</button><button class="btn btn-secondary" data-share="#budget-result" type="button">Share</button></div>
+</div>
+
+      </article>
+
+      <article class="card content-card guide-content">
+        <h2>What this calculator helps answer</h2>
+        <p>Turn monthly income into a cleaner budget split for needs, wants, and savings or extra debt payoff.</p>
+        <h2>When this estimate is useful</h2>
+        <ul><li>Create a first draft budget in seconds.</li><li>Check whether a raise or second income changes what you can save.</li><li>Pressure-test spending before taking on new fixed costs.</li></ul>
+        <h2>How to use the number well</h2>
+        <p>The calculator applies a classic 50 percent, 30 percent, and 20 percent split to monthly income. It is not a rule you must obey, but it is a fast starting framework.</p>
+        <h2>What can change the result</h2>
+        <p>Real life often requires custom percentages. High rent markets, aggressive debt payoff, and irregular income may call for a different split.</p>
+        <div class="callout" style="margin-top:22px">
+          <strong>Good follow-up move</strong>
+          <p>Once you have the number, open one related tool and one related guide. That usually turns a single estimate into a better decision.</p>
+        </div>
+      </article>
+
+      <div class="card content-card">
+
+<article class="card content-card guide-content">
+        <h2 style="margin-top:0">When the 50/30/20 split needs adjusting</h2>
+        <p>The rule is a planning starting point, not a law. If fixed costs are already high or debt is squeezing the month, the split is most useful as a signal that something else in the system may need attention.</p>
+        <p>Use the categories to see pressure clearly, then decide whether the real next move is lowering costs, increasing income, or changing the target percentages.</p>
+      </article>
+        <h2 style="margin-top:0">How this page estimates the result</h2>
+        <div class="table-like">
+          <div class="table-row"><strong>Method</strong><span>The calculator applies a classic 50 percent, 30 percent, and 20 percent split to monthly income. It is not a rule you must obey, but it is a fast starting framework.</span></div>
+          <div class="table-row"><strong>Best use</strong><span>Turn monthly income into a cleaner budget split for needs, wants, and savings or extra debt payoff.</span></div>
+          <div class="table-row"><strong>Limits</strong><span>Real life often requires custom percentages. High rent markets, aggressive debt payoff, and irregular income may call for a different split.</span></div>
+        </div>
+        <p class="note">This page is for planning and education. For tax, payroll, or lender-specific decisions, verify details with the relevant provider.</p>
+      </div>
+
+      <article class="card content-card faq">
+        <h2 style="margin-top:0">Frequently asked questions</h2>
+        <details><summary>Does the 50/30/20 rule fit everyone?</summary><p>No. It is a starting point, not a law. Adjust the categories to fit your actual expenses and goals.</p></details><details><summary>Should extra debt payments count as savings?</summary><p>Many people place them in the same strategic bucket because both improve future cash flow.</p></details><details><summary>What if my needs are already above 50 percent?</summary><p>Use the split as a signal. It may point to a housing, income, or debt problem worth addressing.</p></details>
+      </article>
+    </div>
+    <aside class="sticky-col">
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Use this result well</h3>
+        <ul class="metric-list">
+          <li><strong>Run at least two scenarios</strong><span class="muted">Change one input at a time so you can see which assumption is really driving the output.</span></li>
+          <li><strong>Plan from the monthly view</strong><span class="muted">Monthly numbers usually connect better to bills, savings, and debt than yearly headlines alone.</span></li>
+          <li><strong>Check a next-step page immediately</strong><span class="muted">The best result is usually the one that leads into a budget, quote, debt plan, or savings decision.</span></li>
+        </ul>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Related calculators</h3>
+        <div class="related-list"><a class="link-card" href="/calculators/savings-goal-calculator"><strong>Savings Goal Calculator</strong><small>Estimate how long it could take to reach a savings target.</small></a><a class="link-card" href="/calculators/emergency-fund-calculator"><strong>Emergency Fund Calculator</strong><small>Estimate how much to save for one, three, or six months of core expenses.</small></a><a class="link-card" href="/calculators/debt-payoff-calculator"><strong>Debt Payoff Calculator</strong><small>Estimate payoff time and interest cost based on balance, APR, and monthly payment.</small></a></div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Related guides</h3>
+        <div class="guide-list"><a class="link-card" href="/guides/budget-on-irregular-income"><strong>How to Budget on Irregular Income</strong><small>Use lower baseline income, target buffers, and category priorities to budget on irregular income.</small></a></div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Trust notes</h3>
+        <div class="stack">
+          <div class="link-card"><strong>Updated April 2026</strong><small>Reviewed for clarity and internal linking.</small></div>
+          <a class="link-card" href="/methodology"><strong>Read the methodology</strong><small>See how EarnPrism approaches estimates and limitations.</small></a>
+          <a class="link-card" href="/editorial-standards"><strong>Editorial standards</strong><small>How pages are reviewed, corrected, and expanded.</small></a>
+        </div>
+      </div>
+      <div class="card sidebar-card">
+        <h3 style="margin-top:0">Your recent results</h3>
+        <div class="stack" data-history="budget"></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>EarnPrism</h3>
+        <p>Planning-first calculators and guides for salary, hourly pay, freelance pricing, debt payoff, savings, and practical money decisions.</p>
+        <p class="muted">Updated and expanded regularly. Estimates are for planning and education, not payroll, tax, or legal advice.</p>
+      </div>
+      <div>
+        <h3>Featured calculators</h3>
+        <ul><li><a href="/calculators/hourly-wage-to-salary">Hourly Wage to Salary Calculator</a></li><li><a href="/calculators/take-home-paycheck-calculator">Take-Home Paycheck Calculator</a></li><li><a href="/calculators/freelance-rate-calculator">Freelance Rate Calculator</a></li><li><a href="/calculators/raise-calculator">Raise Calculator</a></li><li><a href="/calculators/debt-payoff-calculator">Debt Payoff Calculator</a></li><li><a href="/calculators/compound-interest-calculator">Compound Interest Calculator</a></li></ul>
+      </div>
+      <div>
+        <h3>Featured guides</h3>
+        <ul><li><a href="/guides/how-to-ask-for-a-raise">How to Ask for a Raise With Numbers</a></li><li><a href="/guides/how-to-price-freelance-work">How to Price Freelance Work Without Guessing</a></li><li><a href="/guides/how-to-calculate-take-home-pay">How to Estimate Take-Home Pay More Realistically</a></li><li><a href="/guides/how-compound-interest-builds-savings">How Compound Interest Builds Savings Over Time</a></li></ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/calculators">All calculators</a></li>
+          <li><a href="/guides">All guides</a></li>
+          <li><a href="/methodology">Methodology</a></li>
+          <li><a href="/editorial-standards">Editorial standards</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span data-current-year></span> EarnPrism. Built for practical money planning.</p>
+    </div>
+  </footer>
+  <div class="toast" id="toast" aria-live="polite"></div>
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/calculators.js" defer></script>
+</body>
+</html>
